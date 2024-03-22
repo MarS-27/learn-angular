@@ -1,11 +1,50 @@
+:root {
+  --min-width: 375px;
+  --max-width: 1200px;
+
+  /* Colors */
+  --main-bg: #e9e9e9;
+  --clr-blue: #61b4f9;
+  --clr-orange: #e08631;
+
+  --clr-soft-gray: #fdfcfc;
+  --clr-light-gray: #504b49;
+  --clr-gray: #353231;
+  --clr-dark-gray: #1b1918;
+
+  --clr-soft-brown: #eee4dd;
+  --clr-light-brown: #d7c0ae;
+  --clr-brown: #967e76;
+  --clr-dark-brown: #5f4f49;
+  --clr-dark-brown-opacity: rgba(95, 79, 73, 0.6);
+
+  /* Gaps */
+
+  --gap-xs: 4px;
+  --gap-s: 8px;
+  --gap-m: 16px;
+  --gap-l: 24px;
+  --gap-xl: 32px;
+  --gap-xxl: 64px;
+
+  /* Transition */
+
+  --transition: 500ms;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: #e9e9e9;
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 .roboto-regular {
@@ -24,4 +63,22 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+/* Layout */
+
+.grid-container {
+  display: grid;
+  grid-template-columns:
+    minmax(16px, 1fr)
+    minmax(var(--min-width), var(--max-width))
+    minmax(16px, 1fr);
+}
+
+.grid-content {
+  grid-column: 2 / 3;
+}
+
+.grid-content-full {
+  grid-column: 1 / -1;
 }
