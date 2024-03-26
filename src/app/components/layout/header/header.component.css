@@ -16,6 +16,11 @@
   gap: 20px;
 }
 
+.logo {
+  color: var(--clr-soft-gray);
+  font-weight: 700;
+}
+
 .nav {
   display: flex;
   gap: 20px;

@@ -1,1 +1,17 @@
-<p>footer works!</p>
+<footer class="footer grid-container">
+  <div class="grid-content footer-content">
+    <a
+      href="https://www.linkedin.com/in/sergii-marchuk/"
+      target="_blank"
+      class="social-link"
+    >
+      <img src="assets/linkedin.svg" alt="linkedin" />
+    </a>
+    <a href="https://github.com/MarS-27" target="_blank" class="social-link">
+      <img src="assets/github.svg" alt="github" />
+    </a>
+  </div>
+  <p class="grid-content footer-text">
+    Created by MarS, {{ currentDate | date : "yyyy" }}
+  </p>
+</footer>
