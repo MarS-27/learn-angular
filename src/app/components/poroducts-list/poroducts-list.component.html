@@ -1,1 +1,20 @@
-<p>poroducts-list works!</p>
+<ul class="products-list">
+  <li
+    class="product-card"
+    *ngFor="let product of this.productService.productsSig()?.products"
+  >
+    <img
+      [src]="product.images[0]"
+      [alt]="product.title"
+      class="product-card_img"
+    />
+    <div class="relative w-full text-center">
+      <p class="w-full font-bold cursor-help line-clamp-1">
+        {{ product.title }}
+      </p>
+    </div>
+    <p class="text-sm text-center">
+      <span class="font-semibold">Price:</span> {{ product.price }}$
+    </p>
+  </li>
+</ul>
