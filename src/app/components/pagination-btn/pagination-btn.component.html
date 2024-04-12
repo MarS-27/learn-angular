@@ -1,1 +1,17 @@
-<p>pagination-btn works!</p>
+<a
+href={
+  variant === 'prev'
+    ? `/users/${activePageNumber - 1}`
+    : `/users/${activePageNumber + 1}`
+}
+>
+<button
+  disabled={
+    (variant === 'prev' && activePageNumber === 1) ||
+    (variant === 'next' && activePageNumber === pagesCount)
+  }
+  class="pagination-btn"
+>
+  {variant === 'prev' ? '-' : '+'}
+</button>
+</a>

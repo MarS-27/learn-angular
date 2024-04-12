@@ -1,4 +1,7 @@
 <section class="grid-content section">
   <app-poroducts-list></app-poroducts-list>
-  <app-pagination></app-pagination>
+  <app-pagination
+    *ngIf="this.productService.productsSig()?.total"
+    [totalProducts]="this.productService.productsSig()?.total!"
+  ></app-pagination>
 </section>

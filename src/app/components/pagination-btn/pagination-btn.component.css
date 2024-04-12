@@ -1,0 +1,16 @@
+.pagination-btn {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--clr-light-gray);
+  background-color: var(--clr-light-brown);
+
+  &:enabled:hover {
+    background-color: var(--clr-brown);
+  }
+
+  &:disabled {
+    background-color: var(--clr-soft-brown);
+    border-color: var(--clr-soft-gra);
+    color: var(--clr-light-gray);
+  }
+}

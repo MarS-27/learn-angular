@@ -1,1 +1,33 @@
-<p>pagination works!</p>
+<div class="pagination" *ngIf="this.paginationTemplateSig().length">
+  <!-- <p>{{ this.totalProducts }}</p> -->
+  <!-- <PaginationButton
+      variant="prev"
+      activePageNumber={activePageNumber}
+      pagesCount={pagesCount}
+    /> -->
+  <div class="pagination-inner">
+    <ng-container *ngFor="let item of this.paginationTemplateSig()">
+      <p class="pagination-dots" *ngIf="item === '...'; else elseBlock">...</p>
+      <ng-template #elseBlock>
+        <a
+          [routerLink]="['/products']"
+          [queryParams]="{ page: item }"
+          class="block rounded-md"
+        >
+          {{ item }}
+          <!-- <button
+            [disabled]="this.activePage === item"
+            class="w-8 h-7 border-2 border-gray-700 rounded-md enabled:hover:bg-teal-300 enabled:bg-slate-100 disabled:bg-teal-300"
+          >
+            
+          </button> -->
+        </a>
+      </ng-template>
+    </ng-container>
+  </div>
+  <!-- <PaginationButton
+      variant="next"
+      activePageNumber={activePageNumber}
+      pagesCount={pagesCount}
+    /> -->
+</div>

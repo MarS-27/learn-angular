@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
-import { IProducts } from '../../types/product.interface';
-import { PRODUCTS_LIMIT } from '../../constants/constants';
+import { IProducts } from '../types/product.interface';
+import { PRODUCTS_LIMIT } from '../constants/constants';
 
 @Injectable({
   providedIn: 'root',

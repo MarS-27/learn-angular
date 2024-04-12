@@ -1,0 +1,20 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-m);
+}
+
+.pagination-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap-s);
+}
+
+.pagination-dots {
+  font-weight: 700;
+  padding: 0 4px;
+  letter-spacing: 1.5px;
+  font-size: 20px;
+  line-height: 28px;
+}

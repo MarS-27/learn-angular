@@ -5,8 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './pagination-btn.component.html',
-  styleUrl: './pagination-btn.component.css'
+  styleUrl: './pagination-btn.component.css',
 })
-export class PaginationBtnComponent {
-
-}
+export class PaginationBtnComponent {}
