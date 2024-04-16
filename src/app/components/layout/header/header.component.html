@@ -15,7 +15,12 @@
       <a
         routerLink="products"
         [queryParams]="{ page: 1 }"
-        [routerLinkActiveOptions]="{ exact: false }"
+        [routerLinkActiveOptions]="{
+          queryParams: 'ignored',
+          matrixParams: 'exact',
+          paths: 'exact',
+          fragment: 'exact',
+        }"
         routerLinkActive="nav-item__active"
         class="nav-item"
         >Products</a

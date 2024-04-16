@@ -12,12 +12,13 @@
         <a
           [routerLink]="['/products']"
           [queryParams]="{ page: item }"
-          class="block rounded-md"
+          routerLinkActive="pagination-item__active"
+          class="pagination-item"
         >
           {{ item }}
           <!-- <button
             [disabled]="this.activePage === item"
-            class="w-8 h-7 border-2 border-gray-700 rounded-md enabled:hover:bg-teal-300 enabled:bg-slate-100 disabled:bg-teal-300"
+            class=""
           >
             
           </button> -->

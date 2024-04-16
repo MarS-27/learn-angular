@@ -10,5 +10,3 @@ export const routes: Routes = [
   { path: 'products', component: ProductsComponent },
   { path: 'product/:id', component: SingleProductComponent },
 ];
-
-// ?limit=10&skip=0

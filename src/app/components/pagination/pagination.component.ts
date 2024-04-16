@@ -35,8 +35,6 @@ export class PaginationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.totalProducts);
-
     this.route.queryParams.subscribe((params) => {
       const pageNum = Number(params['page']);
       this.paginationTemplateSig.set(
