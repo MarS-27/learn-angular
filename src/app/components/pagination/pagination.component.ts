@@ -1,25 +1,18 @@
 import { NgFor, NgIf } from '@angular/common';
-import {
-  Component,
-  Injector,
-  Input,
-  OnInit,
-  effect,
-  inject,
-  runInInjectionContext,
-  signal,
-} from '@angular/core';
+import { Component, Input, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink, RouterLinkActive } from '@angular/router';
 import {
   PaginationService,
   PaginationTemplate,
 } from '../../../services/pagination.service';
 import { ProductService } from '../../../services/product.service';
+import { PaginationBtnComponent } from '../pagination-btn/pagination-btn.component';
+import { PRODUCTS_LIMIT } from '../../../constants/constants';
 
 @Component({
   selector: 'app-pagination',
   standalone: true,
-  imports: [NgFor, NgIf, RouterLink, RouterLinkActive],
+  imports: [NgFor, NgIf, RouterLink, RouterLinkActive, PaginationBtnComponent],
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.css',
 })
@@ -27,6 +20,7 @@ export class PaginationComponent implements OnInit {
   @Input() totalProducts!: number;
 
   paginationTemplateSig = signal<PaginationTemplate>([]);
+  pagesCount: number = 0;
 
   constructor(
     public paginationService: PaginationService,
@@ -35,13 +29,12 @@ export class PaginationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.pagesCount = Math.floor(this.totalProducts / PRODUCTS_LIMIT);
+
     this.route.queryParams.subscribe((params) => {
       const pageNum = Number(params['page']);
       this.paginationTemplateSig.set(
-        this.paginationService.getPaginationTemplate(
-          pageNum,
-          this.totalProducts
-        )
+        this.paginationService.getPaginationTemplate(pageNum, this.pagesCount)
       );
     });
   }

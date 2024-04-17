@@ -1,5 +1,5 @@
-<ul class="products-list">
-  <li
+<div class="products-list">
+  <div
     class="product-card"
     *ngFor="let product of this.productService.productsSig()?.products"
   >
@@ -16,5 +16,5 @@
     <p class="text-sm text-center">
       <span class="font-semibold">Price:</span> {{ product.price }}$
     </p>
-  </li>
-</ul>
+  </div>
+</div>

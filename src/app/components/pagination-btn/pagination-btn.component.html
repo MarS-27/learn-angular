@@ -1,17 +1,11 @@
 <a
-href={
-  variant === 'prev'
-    ? `/users/${activePageNumber - 1}`
-    : `/users/${activePageNumber + 1}`
-}
->
-<button
-  disabled={
-    (variant === 'prev' && activePageNumber === 1) ||
-    (variant === 'next' && activePageNumber === pagesCount)
-  }
+  [routerLink]="['/products']"
+  [queryParams]="this.setPageQueryParam()"
   class="pagination-btn"
+  [class.pagination-btn__disabled]="
+    (this.variant === 'prevPage' && this.currPage === 1) ||
+    (this.variant === 'nextPage' && this.currPage === this.pagesCount)
+  "
 >
-  {variant === 'prev' ? '-' : '+'}
-</button>
+  <p>{{ this.variant === "prevPage" ? "-" : "+" }}</p>
 </a>

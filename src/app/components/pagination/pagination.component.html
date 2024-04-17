@@ -1,10 +1,5 @@
 <div class="pagination" *ngIf="this.paginationTemplateSig().length">
-  <!-- <p>{{ this.totalProducts }}</p> -->
-  <!-- <PaginationButton
-      variant="prev"
-      activePageNumber={activePageNumber}
-      pagesCount={pagesCount}
-    /> -->
+  <app-pagination-btn [variant]="'prevPage'" [pagesCount]="this.pagesCount" />
   <div class="pagination-inner">
     <ng-container *ngFor="let item of this.paginationTemplateSig()">
       <p class="pagination-dots" *ngIf="item === '...'; else elseBlock">...</p>
@@ -15,20 +10,10 @@
           routerLinkActive="pagination-item__active"
           class="pagination-item"
         >
-          {{ item }}
-          <!-- <button
-            [disabled]="this.activePage === item"
-            class=""
-          >
-            
-          </button> -->
+          <p>{{ item }}</p>
         </a>
       </ng-template>
     </ng-container>
   </div>
-  <!-- <PaginationButton
-      variant="next"
-      activePageNumber={activePageNumber}
-      pagesCount={pagesCount}
-    /> -->
+  <app-pagination-btn [variant]="'nextPage'" [pagesCount]="this.pagesCount" />
 </div>
