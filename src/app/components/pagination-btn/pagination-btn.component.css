@@ -10,6 +10,7 @@
   color: var(--clr-dark-gray);
   border: 2px solid var(--clr-gray);
   background-color: var(--clr-light-brown);
+  transition: all 300ms ease-in-out;
 
   &:hover {
     color: #ffffff;

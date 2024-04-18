@@ -1,0 +1,10 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+
+  & img {
+    width: 14px;
+    height: 14px;
+  }
+}

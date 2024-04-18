@@ -8,13 +8,38 @@
       [alt]="product.title"
       class="product-card_img"
     />
-    <div class="relative w-full text-center">
-      <p class="w-full font-bold cursor-help line-clamp-1">
+    <div
+      class="product-card_title"
+      (mouseenter)="this.onTitleMouseEnter(product.id)"
+      (mouseleave)="this.onTitleMouseLeave()"
+    >
+      <p class="short-text">
+        {{ product.title }}
+      </p>
+      <p class="full-text" *ngIf="isFullTitleShow === product.id">
         {{ product.title }}
       </p>
     </div>
-    <p class="text-sm text-center">
-      <span class="font-semibold">Price:</span> {{ product.price }}$
-    </p>
+    <div class="product-card_elements-group">
+      <p class="product-card_price"><span>Price:</span> {{ product.price }}$</p>
+      <app-product-rating [rating]="product.rating" />
+    </div>
+
+    <div class="product-card_elements-group">
+      <a [routerLink]="['/product', product.id]" class="product-card_more-btn">
+        More
+      </a>
+      <!-- <button
+        className={clsx(
+          'w-9 h-9 hover:scale-110 ease-in-out duration-300',
+          buttonVariant === 'add'
+            ? 'fill-stone-800 hover:fill-teal-500'
+            : 'fill-teal-500 hover:fill-stone-800',
+        )}
+        onClick={handleToggleProduct}
+      >
+        {buttonVariant === 'add' ? <AddCartSVG /> : <RemoveCartSVG />}
+      </button> -->
+    </div>
   </div>
 </div>
