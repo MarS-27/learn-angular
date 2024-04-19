@@ -67,3 +67,44 @@
     left: 0;
   }
 }
+
+.cart {
+  position: relative;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    scale: 1.2;
+  }
+}
+
+.cart-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+
+  & img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  border-radius: 50%;
+  background-color: var(--clr-orange);
+  font-size: 12px;
+  line-height: normal;
+  color: var(--clr-soft-gray);
+  font-weight: 700;
+  letter-spacing: normal;
+}

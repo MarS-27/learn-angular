@@ -26,20 +26,13 @@
     </div>
 
     <div class="product-card_elements-group">
+      <app-cart-button
+        [product]="product"
+        [isProductInCart]="this.cartService.checkProductInCart(product.id)"
+      />
       <a [routerLink]="['/product', product.id]" class="product-card_more-btn">
         More
       </a>
-      <!-- <button
-        className={clsx(
-          'w-9 h-9 hover:scale-110 ease-in-out duration-300',
-          buttonVariant === 'add'
-            ? 'fill-stone-800 hover:fill-teal-500'
-            : 'fill-teal-500 hover:fill-stone-800',
-        )}
-        onClick={handleToggleProduct}
-      >
-        {buttonVariant === 'add' ? <AddCartSVG /> : <RemoveCartSVG />}
-      </button> -->
     </div>
   </div>
 </div>

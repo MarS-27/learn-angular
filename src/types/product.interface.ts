@@ -18,3 +18,8 @@ export interface IProducts {
   skip: number;
   limit: number;
 }
+
+export interface IProductInCart {
+  product: IProduct;
+  quantity: number;
+}

@@ -11,8 +11,8 @@ export class ProductService {
 
   constructor(private readonly http: HttpClient) {}
 
-  getProducts(skip: number) {
-    return this.http
+  getProducts(skip: number): void {
+    this.http
       .get<IProducts>(`products?limit=${PRODUCTS_LIMIT}&skip=${skip}`)
       .subscribe((products) => {
         this.productsSig.set(products);

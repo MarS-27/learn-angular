@@ -1,0 +1,10 @@
+<button class="cart-btn" type="button" (click)="this.onCartBtnClick()">
+  <img
+    src="assets/cart-add.svg"
+    alt="Add to cart"
+    *ngIf="!this.isProductInCart; else elseRemove"
+  />
+  <ng-template #elseRemove>
+    <img src="assets/cart-remove.svg" alt="Remove from cart" />
+  </ng-template>
+</button>
