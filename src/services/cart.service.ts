@@ -45,12 +45,12 @@ export class CartService {
     localStorage.setItem('cart', JSON.stringify(this.productsInCartSig()));
   }
 
-  removeProductFromCart(productId: number): void {
+  removeProductFromCart(productId: number, remove: boolean = false): void {
     const productInCart = this.productsInCartSig().find(
       (item) => item.product.id === productId
     );
 
-    if (productInCart && productInCart.quantity > 1) {
+    if (productInCart && productInCart.quantity > 1 && !remove) {
       productInCart.quantity -= 1;
     } else {
       const updatedCart = this.productsInCartSig().filter(
@@ -65,5 +65,6 @@ export class CartService {
 
   clearCart(): void {
     localStorage.removeItem('cart');
+    this.productsInCartSig.set([]);
   }
 }

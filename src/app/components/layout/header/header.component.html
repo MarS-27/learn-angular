@@ -26,14 +26,6 @@
         >Products</a
       >
     </nav>
-    <div class="cart">
-      <button class="cart-btn">
-        <img src="assets/cart.svg" alt="Cart" />
-      </button>
-      <div class="cart-count">
-        <p>{{ this.cartService.productsInCartSig().length }}</p>
-      </div>
-      <!-- <ShopCart /> -->
-    </div>
+    <app-shop-cart />
   </div>
 </header>

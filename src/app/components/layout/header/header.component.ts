@@ -1,18 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { CartService } from '../../../../services/cart.service';
+import { ShopCartComponent } from '../../shop-cart/shop-cart.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, ShopCartComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements OnInit {
-  constructor(public cartService: CartService) {}
-
-  ngOnInit(): void {
-    this.cartService.getLocalCartProducts();
-  }
-}
+export class HeaderComponent {}

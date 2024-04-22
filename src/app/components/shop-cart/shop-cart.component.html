@@ -1,0 +1,67 @@
+<div class="cart">
+  <button class="cart-btn" (click)="this.handleOpenCart()">
+    <img
+      [src]="!this.isCartOpen ? 'assets/cart.svg' : 'assets/close.svg'"
+      alt="Cart"
+    />
+    <div class="cart-count" *ngIf="!this.isCartOpen">
+      <p>{{ this.cartService.productsInCartSig().length }}</p>
+    </div>
+  </button>
+  <div
+    [@openCloseCart]="isCartOpen ? 'openCart' : 'closeCart'"
+    class="cart-popup"
+  >
+    <div
+      class="cart_list"
+      *ngIf="this.cartService.productsInCartSig().length; else elseCartEmpty"
+    >
+      <div
+        class="cart-item"
+        *ngFor="let cartProduct of this.cartService.productsInCartSig()"
+      >
+        <a
+          [routerLink]="['/product', cartProduct.product.id]"
+          class="cart-item_title"
+        >
+          <img
+            [src]="cartProduct.product.images[0]"
+            [alt]="cartProduct.product.title"
+          />
+          <p>{{ cartProduct.product.title }}</p>
+        </a>
+        <div class="cart-item_info">
+          <div class="cart-item_quantity">
+            <button
+              (click)="
+                this.cartService.removeProductFromCart(cartProduct.product.id)
+              "
+            >
+              -
+            </button>
+            <p>{{ cartProduct.quantity }}</p>
+            <button
+              (click)="this.cartService.addProductInCart(cartProduct.product)"
+            >
+              +
+            </button>
+          </div>
+          <p>{{ cartProduct.quantity * cartProduct.product.price }}$</p>
+          <button
+            (click)="this.handleRemoveProductFromCart(cartProduct.product.id)"
+            class="delete-btn"
+          >
+            <img src="assets/trash.svg" alt="Remove from cart" />
+          </button>
+        </div>
+      </div>
+      <p class="total-price"><span>Total: </span>{{ this.totalPrice() }}$</p>
+      <button class="clear-cart-btn" (click)="this.handleClearCart()">
+        Clear cart
+      </button>
+    </div>
+    <ng-template #elseCartEmpty>
+      <div class="cart_list">Cart is empty!</div>
+    </ng-template>
+  </div>
+</div>
