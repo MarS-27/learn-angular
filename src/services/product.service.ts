@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
-import { IProducts } from '../types/product.interface';
+import { IProduct, IProducts } from '../types/product.interface';
 import { PRODUCTS_LIMIT } from '../constants/constants';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +18,9 @@ export class ProductService {
       .subscribe((products) => {
         this.productsSig.set(products);
       });
+  }
+
+  getProductById(id: number): Observable<IProduct> {
+    return this.http.get<IProduct>(`products/${id}`);
   }
 }

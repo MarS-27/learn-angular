@@ -47,7 +47,7 @@ export class ShopCartComponent implements OnInit {
     this.cartService.getLocalCartProducts();
   }
 
-  handleOpenCart() {
+  handleToggleCart() {
     this.isCartOpen = !this.isCartOpen;
   }
 

@@ -1,1 +1,6 @@
-<p>single-product works!</p>
+<section class="grid-content">
+  <p>{{ this.productSig()?.title }}</p>
+  <!-- <img [src]="this.productSig()?.images[0]" [alt]="this.productSig()?.title" /> -->
+  <p>{{ this.productSig()?.description }}</p>
+  <app-product-rating [rating]="this.productSig()?.rating!" />
+</section>

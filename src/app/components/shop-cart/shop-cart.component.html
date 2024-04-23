@@ -1,5 +1,5 @@
 <div class="cart">
-  <button class="cart-btn" (click)="this.handleOpenCart()">
+  <button class="cart-btn" (click)="this.handleToggleCart()">
     <img
       [src]="!this.isCartOpen ? 'assets/cart.svg' : 'assets/close.svg'"
       alt="Cart"
@@ -23,6 +23,7 @@
         <a
           [routerLink]="['/product', cartProduct.product.id]"
           class="cart-item_title"
+          (click)="this.handleToggleCart()"
         >
           <img
             [src]="cartProduct.product.images[0]"
