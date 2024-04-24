@@ -1,6 +1,12 @@
-<section class="grid-content">
-  <p>{{ this.productSig()?.title }}</p>
-  <!-- <img [src]="this.productSig()?.images[0]" [alt]="this.productSig()?.title" /> -->
-  <p>{{ this.productSig()?.description }}</p>
-  <app-product-rating [rating]="this.productSig()?.rating!" />
+<section class="grid-content section">
+  <div *ngIf="this.productSig(); else loader">
+    <p>{{ this.productSig()?.title }}</p>
+    <img
+      [src]="this.productSig()?.images?.[0]"
+      [alt]="this.productSig()?.title"
+    />
+    <p>{{ this.productSig()?.description }}</p>
+    <!-- <app-product-rating [rating]="this.productSig()?.rating" /> -->
+  </div>
+  <ng-template #loader><app-loader /></ng-template>
 </section>

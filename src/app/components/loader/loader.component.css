@@ -1,0 +1,28 @@
+.loader-container {
+  width: 100%;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--main-bg);
+  z-index: 50;
+}
+
+.spinner {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  border-top: 2px solid var(--clr-blue);
+  border-bottom: 2px solid var(--clr-blue);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
